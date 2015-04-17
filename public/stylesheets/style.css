@@ -1,0 +1,27 @@
+body {
+  font: 14px "Lucida Grande", sans-serif, Helvetica, Arial;
+    padding: 52px;
+}
+
+.footer{
+    background-image: url("back.jpg");
+
+}
+
+.footer, p{
+    color: #FFFFFF
+
+}
+
+
+a {
+  color: #0033CC;
+  
+}
+
+.modal-dialog {
+	z-index: 10;
+}
+.modal-backdrop {
+	z-index: 1;
+}
