@@ -1,0 +1,44 @@
+<!DOCTYPE HTML><html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Car Manufacturers</title>
+</head>
+<body>
+    <h1>Car Manufacturers</h1>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>   
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Column chart with negative values'
+                },
+                xAxis: {
+                    categories: ['BMW', 'Ford', 'Nissan', 'Chrysler', 'Honda']
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Premium',
+                    data: [5, 3, 4, 7, 2]
+                }, {
+                    name: 'Regular',
+                    data: [2, -2, -3, 2, 1]
+                }, {
+                    name: 'Gasoline',
+                    data: [3, 4, 4, -2, 5]
+                }]
+            });
+        });  
+        
+    </script>
+</body></html>
