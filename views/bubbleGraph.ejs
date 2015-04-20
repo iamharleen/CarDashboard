@@ -1,0 +1,89 @@
+<!DOCTYPE HTML><html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Car Manufacturers</title>
+</head>
+<body>
+    <h1>Manufacturers with Model Type, Year & Fuel Cost</h1>
+
+	<div id="container" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript" src="http://code.highcharts.com/highcharts-more.js"></script>
+	<script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+
+    	    chart: {
+    	        type: 'bubble',
+    	        zoomType: 'xy'
+    	    },
+
+    	    title: {
+    	    	text: 'Manufacturers with Model Type, Year & Fuel Cost'
+    	    },
+            
+            plotOptions: {
+                bubble: {
+                    dataLabels: {
+                        enabled: true,
+                        style: { textShadow: 'none' },
+                        formatter: function() {
+                            return this.point.name;
+                        }
+                    },
+                    minSize: '10%',
+                    maxSize: '30%'
+                }
+            },
+    	
+            series: [
+                { 
+                    name: 'Mercedes',
+                    marker: { fillColor: 'pink' },
+                    data: [
+                       { name: '<%= merc[0]._id.VClass%>', x: <%= merc[0]._id.fuelCost08%>, y: <%= merc[0]._id.year%>, z: <%= merc[0].total_products%>}, 
+                       { name: '<%= merc[1]._id.VClass%>', x: <%= merc[1]._id.fuelCost08%>, y: <%= merc[1]._id.year%>, z: <%= merc[1].total_products%>}, 
+                       { name: '<%= merc[2]._id.VClass%>', x: <%= merc[2]._id.fuelCost08%>, y: <%= merc[2]._id.year%>, z: <%= merc[2].total_products%>},
+                       { name: '<%= merc[3]._id.VClass%>', x: <%= merc[3]._id.fuelCost08%>, y: <%= merc[3]._id.year%>, z: <%= merc[3].total_products%>},
+                       { name: '<%= merc[4]._id.VClass%>', x: <%= merc[4]._id.fuelCost08%>, y: <%= merc[4]._id.year%>, z: <%= merc[4].total_products%>},
+                       { name: '<%= merc[5]._id.VClass%>', x: <%= merc[5]._id.fuelCost08%>, y: <%= merc[5]._id.year%>, z: <%= merc[5].total_products%>},
+                       { name: '<%= merc[6]._id.VClass%>', x: <%= merc[6]._id.fuelCost08%>, y: <%= merc[6]._id.year%>, z: <%= merc[6].total_products%>}
+                    ]
+                },
+                { 
+                    name: 'Audi',
+                    marker: { fillColor: 'lightblue' },
+                    data: [
+                       { name: '<%= audi[0]._id.VClass%>', x: <%= audi[0]._id.fuelCost08%>, y: <%= audi[0]._id.year%>, z: <%= audi[0].total_products%>}, 
+                       { name: '<%= audi[1]._id.VClass%>', x: <%= audi[1]._id.fuelCost08%>, y: <%= audi[1]._id.year%>, z: <%= audi[1].total_products%>}, 
+                       { name: '<%= audi[2]._id.VClass%>', x: <%= audi[2]._id.fuelCost08%>, y: <%= audi[2]._id.year%>, z: <%= audi[2].total_products%>},
+                       { name: '<%= audi[3]._id.VClass%>', x: <%= audi[3]._id.fuelCost08%>, y: <%= audi[3]._id.year%>, z: <%= audi[3].total_products%>},
+                       { name: '<%= audi[4]._id.VClass%>', x: <%= audi[4]._id.fuelCost08%>, y: <%= audi[4]._id.year%>, z: <%= audi[4].total_products%>},
+                       { name: '<%= audi[5]._id.VClass%>', x: <%= audi[5]._id.fuelCost08%>, y: <%= audi[5]._id.year%>, z: <%= audi[5].total_products%>},
+                       { name: '<%= audi[6]._id.VClass%>', x: <%= audi[6]._id.fuelCost08%>, y: <%= audi[6]._id.year%>, z: <%= audi[6].total_products%>}
+                    ]
+                },
+                { 
+                    name: 'BMW',
+                    marker: { fillColor: 'lightgreen' },
+                    data: [
+                       { name: '<%= bmw[0]._id.VClass%>', x: <%= bmw[0]._id.fuelCost08%>, y: <%= bmw[0]._id.year%>, z: <%= bmw[0].total_products%>}, 
+                       { name: '<%= bmw[1]._id.VClass%>', x: <%= bmw[1]._id.fuelCost08%>, y: <%= bmw[1]._id.year%>, z: <%= bmw[1].total_products%>}, 
+                       { name: '<%= bmw[2]._id.VClass%>', x: <%= bmw[2]._id.fuelCost08%>, y: <%= bmw[2]._id.year%>, z: <%= bmw[2].total_products%>},
+                       { name: '<%= bmw[3]._id.VClass%>', x: <%= bmw[3]._id.fuelCost08%>, y: <%= bmw[3]._id.year%>, z: <%= bmw[3].total_products%>},
+                       { name: '<%= bmw[4]._id.VClass%>', x: <%= bmw[4]._id.fuelCost08%>, y: <%= bmw[4]._id.year%>, z: <%= bmw[4].total_products%>},
+                       { name: '<%= bmw[5]._id.VClass%>', x: <%= bmw[5]._id.fuelCost08%>, y: <%= bmw[5]._id.year%>, z: <%= bmw[5].total_products%>},
+                       { name: '<%= bmw[6]._id.VClass%>', x: <%= bmw[6]._id.fuelCost08%>, y: <%= bmw[6]._id.year%>, z: <%= bmw[6].total_products%>}
+                    ]
+                }
+            ]            	
+    	});
+        
+    });
+        
+    </script>
+</body></html>

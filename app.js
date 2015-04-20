@@ -5,7 +5,9 @@
 
 var express = require('express')
  // , routes = require('./routes')
-  , database = require('./routes/database')
+  , bar = require('./routes/barGraph')
+  , bubble = require('./routes/bubbleGraph')
+  , modelBar = require('./routes/modelBarGraph')
   , pie = require('./routes/piegraph')
   , http = require('http')
   , ejs = require("ejs")
@@ -51,18 +53,16 @@ app.get('/index', function(req, res){
 });
 
 
-app.get('/graph1', function (req, res) {
-	database.createGraph(function(err,results){
+app.get('/barGraph', function (req, res) {
+	bar.createGraph(function(err,results){
 		if(err){
 			throw err;
 		}else{
-			ejs.renderFile('./views/graph1.ejs',
+			ejs.renderFile('./views/barGraph.ejs',
 					{title : title, output1 : results},	//sending results to user
 					function(err, result) {
 				// render on success
 				if (!err) {
-					console.log("sss=" + JSON.stringify(results));
-					console.log("value=" + results[0].total_products);
 					res.end(result);
 				}
 				// render or error
@@ -75,10 +75,90 @@ app.get('/graph1', function (req, res) {
 	}, "test");
 });
 
+
+app.get('/modelBarGraph/:car', function (req, res) {
+	var car = req.params.car;
+	var name = "";
+	var file = './views/modelBarGraph.ejs';
+	
+	if(car=="bmw") {
+		name = "bmw2015Collection";
+	}	
+	else if(car=="audi"){
+		name = "audi2015Collection";
+	}	
+	else if(car=="mercedes"){
+		name = "mercedes2015Collection";
+	}	
+	modelBar.createGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile('./views/modelBarGraph.ejs',
+					{title : title, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	}, name);
+});
+
+
+app.get('/bubbleGraph', function (req, res) {
+	var name = "";
+	var file = './views/bubbleGraph.ejs';
+	var bmw = [];
+	var audi = [];
+	var merc = [];
+	bubble.createGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			merc = results;
+			bubble.createGraph(function(err,results){
+				if(err){
+					throw err;
+				}else{
+					audi = results;
+					bubble.createGraph(function(err,results){
+						if(err){
+							throw err;
+						}else{
+							bmw = results;
+							ejs.renderFile('./views/bubbleGraph.ejs',
+									{title : title, bmw : bmw, audi: audi, merc : merc},	//sending results to user
+									function(err, result) {
+								// render on success
+								if (!err) {
+									res.end(result);
+								}
+								// render or error
+								else {
+									res.end('An error occurred');
+									console.log(err);
+								}
+							});
+						}
+					}, "bmwCollection");
+				}
+				},"audiCollection");
+		}
+	}, "mercedesCollection");
+});
+
+
 app.get('/piegraph/:car', function(req, res, results) {
 	var car = req.params.car;
 	var name = "";
-	var file = './views/pieAcura.ejs';
+	var file = './views/pieMerc.ejs';
 	
 	if(car=="bmw") {
 		name = "bmwCollection";
@@ -101,8 +181,6 @@ app.get('/piegraph/:car', function(req, res, results) {
 					function(err, result) {
 				// render on success
 				if (!err) {
-					console.log("value=" + results[0][0]);
-					console.log("value2=" + results[0][1]);
 					res.end(result);
 				}
 				// render or error

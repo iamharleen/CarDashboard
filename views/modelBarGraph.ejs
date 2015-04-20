@@ -1,0 +1,73 @@
+<!DOCTYPE HTML><html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Car Manufacturers</title>
+</head>
+<body>
+    <h1>Cylinder Comparison by Model Type</h1>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>   
+
+
+    <script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Number of Cylinders'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['<%= output1[0]._id.model%>',
+                             '<%= output1[1]._id.model%>',
+                             '<%= output1[2]._id.model%>',
+                             '<%= output1[3]._id.model%>',
+                             '<%= output1[4]._id.model%>',
+                             '<%= output1[5]._id.model%>',
+                             '<%= output1[6]._id.model%>',
+                             '<%= output1[7]._id.model%>',
+                             '<%= output1[8]._id.model%>',
+                             '<%= output1[9]._id.model%>',
+                             '<%= output1[10]._id.model%>'
+                            ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cylinder'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Mercedes',
+                data: [<%= output1[0]._id.cylinders%>, <%= output1[1]._id.cylinders%>,<%= output1[2]._id.cylinders%>,<%= output1[3]._id.cylinders%>,
+                       <%= output1[4]._id.cylinders%>,<%= output1[5]._id.cylinders%>,<%= output1[6]._id.cylinders%>,<%= output1[7]._id.cylinders%>,
+                       <%= output1[8]._id.cylinders%>,<%= output1[9]._id.cylinders%>,<%= output1[10]._id.cylinders%>]
+
+            }]
+        });
+    });
+        
+    </script>
+</body></html>
