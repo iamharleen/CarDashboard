@@ -60,6 +60,17 @@ app.get('/mercedes', function(req, res){
     });
 });
 
+app.get('/bmw', function(req, res){
+  fs.readFile(__dirname + '/public/bmw.ejs', 'utf8', function(err, text){
+        res.send(text);
+    });
+});
+
+app.get('/audi', function(req, res){
+  fs.readFile(__dirname + '/public/audi.ejs', 'utf8', function(err, text){
+        res.send(text);
+    });
+});
 
 app.get('/barGraph', function (req, res) {
 	console.log("ofddd");
@@ -90,13 +101,14 @@ app.get('/modelBarGraph/:car', function (req, res) {
 	var name = "";
 	var file = './views/modelBarGraph.ejs';
 	
-	if(car=="bmw") {
+    console.log(car);
+	if(car==":bmw") {
 		name = "bmw2015Collection";
 	}	
-	else if(car=="audi"){
+	else if(car==":audi"){
 		name = "audi2015Collection";
 	}	
-	else if(car=="mercedes"){
+	else if(car==":mercedes"){
 		name = "mercedes2015Collection";
 	}	
 	modelBar.createGraph(function(err,results){
@@ -169,15 +181,15 @@ app.get('/piegraph/:car', function(req, res, results) {
 	var name = "";
 	var file = './views/pieMerc.ejs';
 	
-	if(car=="bmw") {
+	if(car==":bmw") {
 		name = "bmwCollection";
 		file = './views/pieBmw.ejs'
 	}	
-	else if(car=="audi"){
+	else if(car==":audi"){
 		name = "audiCollection";
 		file = './views/pieAudi.ejs'
 	}	
-	else if(car=="mercedes"){
+	else if(car==":mercedes"){
 		name = "mercedesCollection";
 		file = './views/pieMerc.ejs'
 	}		
