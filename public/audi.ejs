@@ -46,7 +46,7 @@
     <script type="text/javascript">
         $(function () {
 
-    $('#container4').highcharts({
+    $('#container1').highcharts({
 
         chart: {
             type: 'gauge',
@@ -164,7 +164,7 @@
         <script type="text/javascript">
     $(function () {
 
-    $('#container5').highcharts({
+    $('#container2').highcharts({
 
         chart: {
             type: 'gauge',
@@ -301,13 +301,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="index.html#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="index.html#services">Services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contacts">Contact</a>
+                        <a class="page-scroll" href="index.html#contacts">Contact</a>
                     </li>
                     <li>
                         <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Feedback</a>
@@ -323,11 +323,11 @@
     <div class="container" style="width:auto" align="center" role="tabpanel">
 	<div class="tabbable">
 		<ul class="nav nav-pills nav-justified">
-	        <li class="active"><a href="#tab0" data-toggle="tab">About</a></li>
+            <li class="active"><a href="#tab0" data-toggle="tab">About</a></li>
         	<li class><a href="/barGraph">Mileage</a></li>
-            <li class><a href="/bubbleGraph">Drive</a></li>
-            <li><a href="#tab3" data-toggle="tab">Class</a></li>
-            <li><a href="#tab4" data-toggle="tab">Compare</a></li>        
+            <li class><a href="/piegraph/:audi">Drive</a></li>
+            <li><a href="/modelBarGraph/:audi">Class</a></li>
+            <li><a href="/bubbleGraph">Compare</a></li>     
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active" id="tab0">
@@ -336,121 +336,10 @@
 Audi has been a majority owned (99.55%) subsidiary of Volkswagen Group since 1966, following a phased purchase of Audi AG's predecessor, Auto Union, from Daimler-Benz. Volkswagen relaunched the Audi brand with the 1965 introduction of the Audi F103 series.
 The company name is based on the Latin translation of the surname of the founder, August Horch. "Horch", meaning "listen" in German, becomes "audi" in Latin. The four rings of the Audi logo each represent one of four car companies that banded together to create Audi's predecessor company, Auto Union. Audi's slogan is Vorsprung durch Technik, meaning "Advancement through Technology". However, since 2007 Audi USA has used the slogan "Truth in Engineering". Audi is a member of the "German Big 3" luxury automakers, along with BMW and Mercedes-Benz, which are the three best-selling luxury automakers in the world.</p>
                 <fieldset style="min-width:350px; max-width:650px; height:350px;">
-                <div id="container4" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
-                <div id="container5" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
+                <div id="container1" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
+                <div id="container2" style="min-width: 310px; max-width: 400px; height: 300px; display: block;float: left;"></div>
                 </fieldset>
-            </div><!-- end tab-pane -->
-        	<div class="tab-pane" id="tab1">
-            	<div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
-            </div><!-- end tab-pane -->
-            <div class="tab-pane" id="tab2">
-            <div id="container1" style=" width:600px; height: 400px; margin: 0 auto"></div>            	
-            </div><!--end tab-pane -->
-            <div class="tab-pane" id="tab3">
-            <div id="container2" style=" width:600px; height: 400px; margin: 0 auto"></div>            	
-            </div><!--end tab-pane -->
-            <div class="tab-pane" id="tab4">
-            <div id="container3" style=" width:600px; height: 400px; margin: 0 auto"></div>            	
-            </div><!--end tab-pane -->
-        </div><!-- end tab-content -->
+            </div><!-- end tab-content -->
 	</div><!---end tabbable -->
     </div><!-- end container -->
-    
-<script type="text/javascript">
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Monthly Average Rainfall'
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com'
-        },
-        xAxis: {
-            categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ],
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Rainfall (mm)'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: 'Tokyo',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-        }, {
-            name: 'New York',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-        }, {
-            name: 'London',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-        }, {
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-        }]
-    });
-});
-</script>  
-<script type="text/javascript">
-$(function () {
-    $('#container1').highcharts({
-        chart: {
-            type: 'area'
-        },
-        title: {
-            text: 'Area chart with negative values'
-        },
-        xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'John',
-            data: [5, 3, 4, 7, 2]
-        }, {
-            name: 'Jane',
-            data: [2, -2, -3, 2, 1]
-        }, {
-            name: 'Joe',
-            data: [3, 4, 4, -2, 5]
-        }]
-    });
-});
-</script>
 </body>
