@@ -11,6 +11,7 @@ var express = require('express')
   , pie = require('./routes/piegraph')
   , http = require('http')
   , ejs = require("ejs")
+  , fs = require('fs')
   , path = require('path');
 
 var app = express();
@@ -33,12 +34,11 @@ if ('development' == app.get('env')) {
 
 
 //get
-/*
 app.get('/index', function(req, res){
   fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
         res.send(text);
     });
-});*/
+});
 
 var title = 'Car Dashboard Design';
 var output1 = '';
@@ -46,14 +46,23 @@ var output2 = '';
 var output3 = '';
 
 //get
+/*
 app.get('/index', function(req, res){
   fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
+        res.send(text);
+    });
+});*/
+
+//get
+app.get('/mercedes', function(req, res){
+  fs.readFile(__dirname + '/public/mercedes.ejs', 'utf8', function(err, text){
         res.send(text);
     });
 });
 
 
 app.get('/barGraph', function (req, res) {
+	console.log("ofddd");
 	bar.createGraph(function(err,results){
 		if(err){
 			throw err;
