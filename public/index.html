@@ -12,21 +12,22 @@
     <title>Modern Business - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
     <link href="css/modern-business.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="css/footer-basic-centered.css">
-    <script src="script.js" type="text/javascript"> </script>
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body>
@@ -48,13 +49,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">About</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a class="page-scroll" href="#contacts">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Feedback</a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +67,9 @@
         <!-- /.container -->
     </nav>
 
+    <div class="collapse container" id="collapseExample">
 
+    </div>
     
 <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
@@ -77,21 +83,12 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="fill" style="background-image:url('images/dash5.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('images/dash6.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
+                <div class="fill" style="background-image:url('images/dash8.jpg');"></div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('images/dash7.png');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
+                <div class="fill" style="background-image:url('images/jaguar.jpg');"></div>
             </div>
         </div>
 
@@ -118,7 +115,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Mercedes</h4>
+                        <h4 style="color:white; font-size:1.5em;"> Mercedes</h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
@@ -129,7 +126,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> BMW</h4>
+                        <h4 style="color:white; font-size:1.5em;">BMW</h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
@@ -140,7 +137,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Audi</h4>
+                        <h4 style="color:white; font-size:1.5em;">Audi</h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
@@ -171,37 +168,37 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">What do we offer</h2>
                     <hr class="primary">
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="margin-top:50px;">
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                    <div class="service-box"> 
+                        <span class="glyphicon glyphicon-wrench"></span>
                         <h3>Sturdy Templates</h3>
                         <p class="text-muted">Our templates are updated regularly so they don't break.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <span class="glyphicon glyphicon-fullscreen"></span>
                         <h3>Ready to Ship</h3>
                         <p class="text-muted">You can use this theme as is, or you can make changes!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    <div class="service-box"> 
+                        <span class="glyphicon glyphicon-send"></span>
                         <h3>Up to Date</h3>
                         <p class="text-muted">We update dependencies to keep things fresh.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <span class="glyphicon glyphicon-console"></span> 
                         <h3>Made with Love</h3>
                         <p class="text-muted">You have to make your websites with love these days!</p>
                     </div>
@@ -242,7 +239,7 @@
                     </div>
                 </div>
 
-            <div id="images" style="margin-left:300px">
+            <div style="margin-left:150px">
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
                         <div class="thumbnail">
@@ -253,7 +250,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-4" style="margin-left:120px">
                         <div class="thumbnail">
                             <img src="images/sylvestor.jpg" alt="...">
                                 <div class="caption">
@@ -300,7 +297,7 @@
         interval: 5000 //changes the speed
     })
     </script>
-    			
+
 </body>
 
 </html>

@@ -24,8 +24,34 @@ body {
     opacity: 0.8;
 }
 
+.navbar-brand{
+
+    font-size:2em;
+    font-style: oblique;
+    text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+    }
+
+.navbar-nav{
+
+    font-size:1.5em;
+    font-style: oblique;
+    color: #FFF;
+    text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;
+}
+
+#collapseExample{
+    
+    height:100px;
+    margin: 0;
+    padding: 0;
+}
 /* Home Page Carousel */
 
+
+.myCarousel{
+    margin: 0px;
+    padding: 0px;
+}
 header.carousel {
     height: 50%;
 }
@@ -43,6 +69,15 @@ header.carousel .fill {
     background-size: cover;
 }
 
+.page-header{
+
+    font-style: oblique;
+}
+
+.panel .panel-heading{
+
+    background-color: #3C3533;
+}
 
 #about {
     width:100%;
@@ -101,7 +136,7 @@ background-color: #f05f40;
 
 #services {
     width:100%;
-    height:75%;
+    height:100%;
     text-align: center;    
 }
 
@@ -110,6 +145,7 @@ background-color: #f05f40;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-size: 2.5em;
 }
+
 
 #services h3{
 
@@ -129,8 +165,18 @@ background-color: #f05f40;
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
+.glyphicon{
+
+    font-size: 50px;
+    color:#f05f40;
+}
+
 #contacts{
     margin-bottom:0px;
+}
+
+.thumbnail{
+    width: 350px;
 }
 
 #contacts p{
