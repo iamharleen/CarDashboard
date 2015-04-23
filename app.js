@@ -9,6 +9,7 @@ var express = require('express')
   , bubble = require('./routes/bubbleGraph')
   , modelBar = require('./routes/modelBarGraph')
   , pie = require('./routes/piegraph')
+  , sankey = require('./routes/sankeygraph')
   , http = require('http')
   , ejs = require("ejs")
   , fs = require('fs')
@@ -270,6 +271,50 @@ app.get('/:car/piegraph', function(req, res, results) {
 		}
 	}, name);
 });
+
+app.get('/:car/sankeygraph', function(req, res, results) {
+	var car = req.params.car;
+	var name = "";
+	var file = './views/sankeyMerc.ejs';
+	
+	if(car=="bmw") {
+		name = "bmwCollection";
+		file = './views/sankeyBmw.ejs'
+	}	
+	else if(car=="audi"){
+		name = "audiCollection";
+		file = './views/sankeyAudi.ejs'
+	}	
+	else if(car=="mercedes"){
+		name = "mercedesCollection";
+		file = './views/sankeyMerc.ejs'
+	}		
+    
+    // TO be removed later
+    var title = "Car Dashboard Design";
+    var results = [10,20,30];
+    
+	pie.createGraph(function(err,results){
+		if(err){
+			throw err;
+		}else{
+			ejs.renderFile(file,
+					{title : title, output1 : results},	//sending results to user
+					function(err, result) {
+				// render on success
+				if (!err) {
+					res.end(result);
+				}
+				// render or error
+				else {
+					res.end('An error occurred');
+					console.log(err);
+				}
+			});
+		}
+	}, name);
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
