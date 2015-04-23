@@ -1,0 +1,89 @@
+<!DOCTYPE HTML><html>
+<head>
+    <% include head.ejs%>
+</head>
+<body>
+    <% include header.ejs%>
+    <img style="margin-bottom:10px; align-self:center" class="active visible-lg img-responsive" src="/../images/bmw.jpg" />
+    <div class="container" style="width:auto" align="center" role="tabpanel">
+	<div class="tabbable">
+		<ul class="nav nav-pills nav-justified">
+	        <li><a href="#">About</a></li>
+        	<li><a id="bar" href="#">2015 Ratings</a></li>
+            <li class="active"><a id="pie" href="#">Sales Ratio</a></li>
+            <li><a id="model" href="#">Compare Models</a></li>
+            <li><a id="bubble" href="#">Top Rated Cars</a></li>   
+            
+                 
+        </ul>
+        <div class="tab-content">
+        	<div class="tab-pane active">
+                <h2>BMW: Drive Type</h2>
+                <div id="container" style="min-width: 310px; width: 700px; height: 400px; margin: 0 auto"></div>
+            </div><!-- end tab-pane -->
+        </div><!-- end tab-content -->
+	</div><!---end tabbable -->
+    </div><!-- end container -->
+    
+        
+    <script type="text/javascript">
+    $(function () {
+
+        // Radialize the colors
+        Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+            return {
+                radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                ]
+            };
+        });
+
+        // Build the chart
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Browser market shares at a specific website, 2014'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Drive Type',
+                data: [
+                    ['Rear-Wheel Drive',   <%= output1[0].total_products%>],
+                    ['All-Wheel Drive',       <%= output1[1].total_products%>],
+                    {
+                        name: '4-Wheel or All-Wheel Drive',
+                        y: <%= output1[2].total_products%>,
+                        sliced: true,
+                        selected: true
+                    }
+                ]
+            }]
+        });
+    });
+    </script>
+    <% include footer.ejs%>
+</body>
+</html>
