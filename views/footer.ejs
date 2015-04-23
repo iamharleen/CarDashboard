@@ -1,0 +1,46 @@
+<!-- Footer -->
+        <footer class="footer-basic-centered">
+            <p class="footer-company-motto">Work hard, play even harder</p>
+            <p class="footer-company-name">Elite Technologies &copy; 2015</p>
+            
+            <div class="col-2">
+              <br>
+              	<li><iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=sjsu" style="width:300px; height:20px;"></iframe></li>
+                <li>
+                <div class="fb-like" data-href="https://www.facebook.com/pages/Elite-Technologies/347771035432176" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                </li>
+              </ul>
+            </div>
+        </footer>
+        
+        <script type="text/javascript">
+    var matches = window.location.pathname.split('/');
+    var company = (matches) ? matches[1] : 'mercedes';
+    company = '/' + company;
+    var url = company + "/barGraph";
+    var temp = document.getElementById('bar');
+    temp.setAttribute('href', url);
+    
+    var url2 = company + "/modelBarGraph";
+    var temp2 = document.getElementById('model');
+    temp2.setAttribute('href', url2);
+    
+    var url3 = company + "/bubbleGraph";
+    var temp3 = document.getElementById('bubble');
+    temp3.setAttribute('href', url3);
+    
+    var url4 = company + "/pieGraph";
+    var temp4 = document.getElementById('pie');
+    temp4.setAttribute('href', url4);
+    
+    </script>
+    
+    <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>

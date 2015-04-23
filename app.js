@@ -34,10 +34,20 @@ if ('development' == app.get('env')) {
 
 
 //get
-app.get('/index', function(req, res){
-  fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
-        res.send(text);
-    });
+app.get('/', function(req, res){
+  ejs.renderFile('./views/index.html',function(err, result) {
+	  console.log("yoddle");
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
+  
 });
 
 var title = 'Car Dashboard Design';
@@ -45,41 +55,70 @@ var output1 = '';
 var output2 = '';
 var output3 = '';
 
-//get
-/*
-app.get('/index', function(req, res){
-  fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
-        res.send(text);
-    });
-});*/
 
 //get
-app.get('/mercedes', function(req, res){
-  fs.readFile(__dirname + '/public/mercedes.ejs', 'utf8', function(err, text){
-        res.send(text);
-    });
+app.get('/mercedes', function(req, res){ 
+  ejs.renderFile('./views/mercedes.ejs',function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
 });
 
 app.get('/bmw', function(req, res){
-  fs.readFile(__dirname + '/public/bmw.ejs', 'utf8', function(err, text){
-        res.send(text);
-    });
+	 ejs.renderFile('./views/bmw.ejs',function(err, result) {
+			// render on success
+			if (!err) {
+				res.end(result);
+			}
+			// render or error
+			else {
+				res.end('An error occurred');
+				console.log(err);
+			}
+		});
 });
 
 app.get('/audi', function(req, res){
-  fs.readFile(__dirname + '/public/audi.ejs', 'utf8', function(err, text){
-        res.send(text);
-    });
+	ejs.renderFile('./views/audi.ejs',function(err, result) {
+		// render on success
+		if (!err) {
+			res.end(result);
+		}
+		// render or error
+		else {
+			res.end('An error occurred');
+			console.log(err);
+		}
+	});
 });
 
-app.get('/barGraph', function (req, res) {
-	console.log("ofddd");
+app.get('/:car/barGraph', function (req, res) {
+	var car = req.params.car;
+	var file = "/../images/mercedes.jpg";
+	
+    console.log(car);
+	if(car=="bmw") {
+		file = "/../images/bmw.jpg";
+	}	
+	else if(car=="audi"){
+		file = "/../images/audi.jpg";
+	}	
+	else if(car=="mercedes"){
+		file = "/../images/mercedes.jpg";
+	}	
 	bar.createGraph(function(err,results){
 		if(err){
 			throw err;
 		}else{
 			ejs.renderFile('./views/barGraph.ejs',
-					{title : title, output1 : results},	//sending results to user
+					{title : title, output1 : results, output2 : file},	//sending results to user
 					function(err, result) {
 				// render on success
 				if (!err) {
@@ -96,27 +135,35 @@ app.get('/barGraph', function (req, res) {
 });
 
 
-app.get('/modelBarGraph/:car', function (req, res) {
+app.get('/:car/modelBarGraph', function (req, res) {
 	var car = req.params.car;
+	console.log("name of " + car);
 	var name = "";
-	var file = './views/modelBarGraph.ejs';
+	var file = "/../images/mercedes.jpg";
+	var carName = 'Mercedes';
 	
     console.log(car);
-	if(car==":bmw") {
+	if(car=="bmw") {
 		name = "bmw2015Collection";
+		file = "/../images/bmw.jpg";
+		carName = 'BMW';
 	}	
-	else if(car==":audi"){
+	else if(car=="audi"){
 		name = "audi2015Collection";
+		file = "/../images/audi.jpg";
+		carName = 'Audi';
 	}	
-	else if(car==":mercedes"){
+	else if(car=="mercedes"){
 		name = "mercedes2015Collection";
+		file = "/../images/mercedes.jpg";
+		carName = 'Mercedes';
 	}	
 	modelBar.createGraph(function(err,results){
 		if(err){
 			throw err;
 		}else{
 			ejs.renderFile('./views/modelBarGraph.ejs',
-					{title : title, output1 : results},	//sending results to user
+					{title : title, output1 : results, output2 : file, output3 : carName},	//sending results to user
 					function(err, result) {
 				// render on success
 				if (!err) {
@@ -133,12 +180,22 @@ app.get('/modelBarGraph/:car', function (req, res) {
 });
 
 
-app.get('/bubbleGraph', function (req, res) {
+app.get('/:car/bubbleGraph', function (req, res) {
+	var car = req.params.car;
 	var name = "";
-	var file = './views/bubbleGraph.ejs';
+	var file = "/../images/mercedes.jpg";
 	var bmw = [];
 	var audi = [];
 	var merc = [];
+	if(car=="bmw") {
+		file = "/../images/bmw.jpg";
+	}	
+	else if(car=="audi"){
+		file = "/../images/audi.jpg";
+	}	
+	else if(car=="mercedes"){
+		file = "/../images/mercedes.jpg";
+	}	
 	bubble.createGraph(function(err,results){
 		if(err){
 			throw err;
@@ -155,7 +212,7 @@ app.get('/bubbleGraph', function (req, res) {
 						}else{
 							bmw = results;
 							ejs.renderFile('./views/bubbleGraph.ejs',
-									{title : title, bmw : bmw, audi: audi, merc : merc},	//sending results to user
+									{title : title, bmw : bmw, audi: audi, merc : merc, output2 : file},	//sending results to user
 									function(err, result) {
 								// render on success
 								if (!err) {
@@ -176,20 +233,20 @@ app.get('/bubbleGraph', function (req, res) {
 });
 
 
-app.get('/piegraph/:car', function(req, res, results) {
+app.get('/:car/piegraph', function(req, res, results) {
 	var car = req.params.car;
 	var name = "";
 	var file = './views/pieMerc.ejs';
 	
-	if(car==":bmw") {
+	if(car=="bmw") {
 		name = "bmwCollection";
 		file = './views/pieBmw.ejs'
 	}	
-	else if(car==":audi"){
+	else if(car=="audi"){
 		name = "audiCollection";
 		file = './views/pieAudi.ejs'
 	}	
-	else if(car==":mercedes"){
+	else if(car=="mercedes"){
 		name = "mercedesCollection";
 		file = './views/pieMerc.ejs'
 	}		

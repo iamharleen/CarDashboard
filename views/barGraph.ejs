@@ -1,78 +1,18 @@
 <!DOCTYPE HTML><html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Elite Technologies</title>
-
-    <link href="css/modern-business.css" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="css/footer-basic-centered.css">
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
-    <style>
-      .navbar{
-        padding: 0px;
-        margin: 0px;
-      }
-      #mainCarousel{
-        padding:0px;
-        margin:0px;
-        width:100%;
-        height:100%;
-      }
-	  
-    </style>
+    <% include head.ejs%>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a style="font-size:2em;" class="navbar-brand" href="index.html">Elite Technologies</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="index.html#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="index.html#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="index.html#contacts">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Feedback</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <img style="margin-bottom:10px; align-self:center" class="active visible-lg img-responsive" src="images/mercedes.jpg" />
+    <% include header.ejs%>
+    <img style="margin-bottom:10px; align-self:center" class="active visible-lg img-responsive" src=<%= output2%> />
     <div class="container" style="width:auto" align="center" role="tabpanel">
 	<div class="tabbable">
 		<ul class="nav nav-pills nav-justified">
 	        <li><a href="#tab0" data-toggle="tab">About</a></li>
-        	<li class="active"><a href="/barGraph">2015 Ratings</a></li>
-            <li><a href="/piegraph/:mercedes">Sales Ratio</a></li>
-            <li><a href="/modelBarGraph/:mercedes">Compare Models</a></li>
-            <li><a href="/bubbleGraph">Top Rated Cars</a></li>        
+        	<li class="active"><a id="bar" href="/barGraph">2015 Ratings</a></li>
+            <li><a id="pie" href="#">Sales Ratio</a></li>
+            <li><a id="model" href="#">Compare Models</a></li>
+            <li><a id="bubble" href="#">Top Rated Cars</a></li>        
         </ul>
         <div class="tab-content">
         	<div class="tab-pane active">
@@ -82,10 +22,7 @@
         </div><!-- end tab-content -->
 	</div><!---end tabbable -->
     </div><!-- end container -->
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-    <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>   
+ 
 
     <script type="text/javascript">
         $(function () {
@@ -128,10 +65,6 @@
         });  
         
     </script>
-        <!-- Footer -->
-        <footer class="footer-basic-centered">
-            <p class="footer-company-motto">Work hard, play even harder</p>
-            <p class="footer-company-name">Elite Technologies &copy; 2015</p>
-        </footer>
+      <% include footer.ejs%>
 </body>
 </html>
