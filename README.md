@@ -30,10 +30,10 @@ Following directory information:
 
 * [app.js] - Server for the website
 * [/routes/*] - Server side js files to fetch data from db
-* [/images/*] - Client side images
+* [/public/images/*] - Client side images
 * [/public/stylesheets/*] - CSS file to layout client website
 * [/views/*] - Client side express java script files 
-* [/js/*] - jQuery files to render images on Client
+* [/public/js/*] - jQuery files to render images on Client
 
 ##Technology Used
 --------------
@@ -46,8 +46,9 @@ Following technologies have been used in order to develop this project
 ##Tools being used
 --------------
 * Bootstrap
-* jQuery for UI
+* jQuery, HTML5, CSS, Javascript for UI
 * D3JS and HighCharts API to create Analyze charts
+* MongoLab for database
 
 ##Team Member
 --------------
