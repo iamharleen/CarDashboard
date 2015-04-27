@@ -21,7 +21,7 @@ function createGraph(callback, name)
 					   [
 					     { $group: { _id: "$drive", total_products: { $sum: 1 } } }
 					   ],function(err,result) {
-						   callback(err,result);
+                           callback(err,result);
 						});
 	   }   
   });

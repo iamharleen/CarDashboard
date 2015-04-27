@@ -37,16 +37,16 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Num of Models');
         data.addRows([
-          [ '2011', 'Front-Wheel Drive', 6 ],
-          [ '2012', 'Front-Wheel Drive', 6 ],
-          [ '2013', 'Front-Wheel Drive', 6 ],
-          [ '2014', 'Front-Wheel Drive', 3 ],
-          [ '2015', 'Front-Wheel Drive', 6 ],
-          [ '2011', 'All-Wheel Drive', 32 ],
-          [ '2012', 'All-Wheel Drive', 32 ],
-          [ '2013', 'All-Wheel Drive', 38 ],
-          [ '2014', 'All-Wheel Drive', 45 ],
-          [ '2015', 'All-Wheel Drive', 49 ]
+          [ '2011', 'Front-Wheel Drive', <%= output2011[0][0].total_products%> ],
+          [ '2012', 'Front-Wheel Drive', <%= output2012[0][0].total_products%> ],
+          [ '2013', 'Front-Wheel Drive', <%= output2013[0][0].total_products%> ],
+          [ '2014', 'Front-Wheel Drive', <%= output2014[0][0].total_products%> ],
+          [ '2015', 'Front-Wheel Drive', <%= output2015[0][0].total_products%> ],
+          [ '2011', 'All-Wheel Drive', <%= output2011[0][1].total_products%> ],
+          [ '2012', 'All-Wheel Drive', <%= output2012[0][1].total_products%> ],
+          [ '2013', 'All-Wheel Drive', <%= output2013[0][1].total_products%> ],
+          [ '2014', 'All-Wheel Drive', <%= output2014[0][1].total_products%> ],
+          [ '2015', 'All-Wheel Drive', <%= output2015[0][1].total_products%> ]
           
         ]);
 

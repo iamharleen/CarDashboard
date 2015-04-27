@@ -277,7 +277,7 @@ app.get('/:car/sankeygraph', function(req, res, results) {
 	var name = "";
 	var file = './views/sankeyMerc.ejs';
 	
-	if(car=="bmw") {
+    if(car=="bmw") {
 		name = "bmwCollection";
 		file = './views/sankeyBmw.ejs'
 	}	
@@ -288,18 +288,22 @@ app.get('/:car/sankeygraph', function(req, res, results) {
 	else if(car=="mercedes"){
 		name = "mercedesCollection";
 		file = './views/sankeyMerc.ejs'
-	}		
+	}	
     
-    // TO be removed later
-    var title = "Car Dashboard Design";
-    var results = [10,20,30];
-    
-	pie.createGraph(function(err,results){
-		if(err){
+    sankey.createGraph(function(err,results2011, results2012,results2013,results2014,results2015){
+    	if(err){
 			throw err;
 		}else{
-			ejs.renderFile(file,
-					{title : title, output1 : results},	//sending results to user
+            console.log(results);
+            ejs.renderFile(file,
+				{
+                    title : title, 
+                    output2011 : results2011, 
+                    output2012 : results2012, 
+                    output2013 : results2013,
+                    output2014 : results2014,
+                    output2015 : results2015
+                },	//sending results to user
 					function(err, result) {
 				// render on success
 				if (!err) {
@@ -311,8 +315,9 @@ app.get('/:car/sankeygraph', function(req, res, results) {
 					console.log(err);
 				}
 			});
-		}
-	}, name);
+		  }
+   }, name);
+     
 });
 
 

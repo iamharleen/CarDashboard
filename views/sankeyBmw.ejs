@@ -38,16 +38,16 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Num of Models');
         data.addRows([
-          [ '2011', 'Rear-Wheel Drive', 56 ],
-          [ '2012', 'Rear-Wheel Drive', 59 ],
-          [ '2013', 'Rear-Wheel Drive', 67 ],
-          [ '2014', 'Rear-Wheel Drive', 57 ],
-          [ '2015', 'Rear-Wheel Drive', 68 ],
-          [ '2011', 'All-Wheel Drive', 28 ],
-          [ '2012', 'All-Wheel Drive', 26 ],
-          [ '2013', 'All-Wheel Drive', 33 ],
-          [ '2014', 'All-Wheel Drive', 41 ],
-          [ '2015', 'All-Wheel Drive', 53 ]
+          [ '2011', 'Rear-Wheel Drive', <%= output2011[0][1].total_products%> ],
+          [ '2012', 'Rear-Wheel Drive', <%= output2012[0][1].total_products%> ],
+          [ '2013', 'Rear-Wheel Drive', <%= output2013[0][1].total_products%> ],
+          [ '2014', 'Rear-Wheel Drive', <%= output2014[0][1].total_products%> ],
+          [ '2015', 'Rear-Wheel Drive', <%= output2015[0][1].total_products%> ],
+          [ '2011', 'All-Wheel Drive', <%= output2011[0][0].total_products%> ],
+          [ '2012', 'All-Wheel Drive', <%= output2012[0][0].total_products%> ],
+          [ '2013', 'All-Wheel Drive', <%= output2013[0][0].total_products%> ],
+          [ '2014', 'All-Wheel Drive', <%= output2014[0][0].total_products%> ],
+          [ '2015', 'All-Wheel Drive', <%= output2015[0][0].total_products%> ]
         ]);
 
         // Sets chart options.
